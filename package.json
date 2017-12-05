@@ -1,0 +1,42 @@
+{
+  "name": "js-es6-aws-ses-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js",
+    "start:windows:production": "SET NODE_ENV=production&&babel-node index.js",
+    "start:unix:production": "export NODE_ENV=production&&babel-node index.js",
+    "test": "echo \"Error: no test specified\"&&exit 1",
+    "test:windows:integration": "SET NODE_ENV=test&&mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
+    "test:unix:integration": "export NODE_ENV=test&&mocha --opts test/integration/mocha.opts test/integration/**/*_spec.js",
+    "test:unit": "mocha --opts test/unit/mocha.opts test/unit/**/*_spec.js",
+    "lint": "eslint **/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcosrachid/node-js-es6-aws-ses-api.git"
+  },
+  "author": "Marcos Rachid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcosrachid/node-js-es6-aws-ses-api/issues"
+  },
+  "homepage": "https://github.com/marcosrachid/node-js-es6-aws-ses-api#readme",
+  "dependencies": {
+    "aws-sdk": "^2.163.0",
+    "body-parser": "^1.18.2",
+    "config": "^1.28.1",
+    "connect-multiparty": "^2.1.0",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "chai": "^4.1.2",
+    "eslint": "^4.12.1",
+    "mocha": "^4.0.1",
+    "sinon": "^4.1.2",
+    "supertest": "^3.0.0"
+  }
+}
