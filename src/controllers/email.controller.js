@@ -58,7 +58,7 @@ class EmailController {
     };
 
     //Try to send the email.
-    ses.sendEmail(params, function(err, data) {
+    ses.sendEmail(params, (err, data) => {
       // If something goes wrong, print an error message.
       if(err) {
         return res.status(400).json(err);
