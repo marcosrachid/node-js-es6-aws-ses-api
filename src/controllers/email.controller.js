@@ -11,7 +11,6 @@ class EmailController {
 
     const body = req.body;
 
-    // Provide the full path to your config.json file.
     aws.config.update({
       accessKeyId: aws_key, secretAccessKey: aws_secret, region: region
     });
@@ -23,11 +22,6 @@ class EmailController {
     // Replace recipient@example.com with a "To" address. If your account
     // is still in the sandbox, this address must be verified.
     const recipient = config.get('receiver') || '';
-
-    // Specify a configuration set. If you do not want to use a configuration
-    // set, comment the following variable, and the
-    // ConfigurationSetName : configuration_set argument below.
-    const configuration_set = "ConfigSet";
 
     // The subject line for the email.
     const subject = body.subject;
@@ -60,18 +54,15 @@ class EmailController {
             Charset: charset
           }
         }
-      },
-      ConfigurationSetName: configuration_set
+      }
     };
 
     //Try to send the email.
     ses.sendEmail(params, function(err, data) {
       // If something goes wrong, print an error message.
       if(err) {
-        console.log(err.message);
         return res.status(400).json(err);
       } else {
-        console.log("Email sent! Message ID: ", data.MessageId);
         return res.status(200).send('');
       }
     });
